@@ -66,6 +66,7 @@
     <Reference Include="DevExpress.Printing.v21.2.Core" />
     <Reference Include="DevExpress.XtraGrid.v21.2, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v21.2, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v21.2, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v21.2, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraRichEdit.v21.2, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraTreeList.v21.2, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -170,6 +171,18 @@
     <Compile Include="Forms\BookReadersXtraForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\BooksXtraForm.Designer.vb">
+      <DependentUpon>BooksXtraForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BooksXtraForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BorrowingsXtraForm.Designer.vb">
+      <DependentUpon>BorrowingsXtraForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BorrowingsXtraForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\CheckinXtraForm.Designer.vb">
       <DependentUpon>CheckinXtraForm.vb</DependentUpon>
     </Compile>
@@ -194,6 +207,12 @@
     <Compile Include="Forms\ReaderEditXtraForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\ReadersXtraForm.Designer.vb">
+      <DependentUpon>ReadersXtraForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReadersXtraForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MainXtraForm.Designer.vb">
       <DependentUpon>MainXtraForm.vb</DependentUpon>
     </Compile>
@@ -215,6 +234,12 @@
     <EmbeddedResource Include="Forms\BookReadersXtraForm.resx">
       <DependentUpon>BookReadersXtraForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BooksXtraForm.resx">
+      <DependentUpon>BooksXtraForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BorrowingsXtraForm.resx">
+      <DependentUpon>BorrowingsXtraForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\CheckinXtraForm.resx">
       <DependentUpon>CheckinXtraForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -226,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ReaderEditXtraForm.resx">
       <DependentUpon>ReaderEditXtraForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReadersXtraForm.resx">
+      <DependentUpon>ReadersXtraForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainXtraForm.resx">
       <DependentUpon>MainXtraForm.vb</DependentUpon>

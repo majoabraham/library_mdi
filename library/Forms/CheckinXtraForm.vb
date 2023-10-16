@@ -50,24 +50,24 @@ Public Class CheckinXtraForm
             uow.CommitChanges()
         End Using
 
-        MainXtraForm.BorrowingGridControl.DataSource = DataManipulation.GetAllBorrowings()
-        MainXtraForm.BooksGridControl.DataSource = DataManipulation.GetAllBooks()
+        'MainXtraForm.BorrowingGridControl.DataSource = DataManipulation.GetAllBorrowings()
+        'MainXtraForm.BooksGridControl.DataSource = DataManipulation.GetAllBooks()
 
         Close()
     End Sub
 
     Private Sub LoadBorrowing()
-        Dim rowId = MainXtraForm.BorrowingGridView.GetSelectedRows().First()
-        Dim row As Borrowing = CType(MainXtraForm.BorrowingGridView.GetRow(rowId), Borrowing)
-        _oid = row.Oid
+        'Dim rowId = MainXtraForm.BorrowingGridView.GetSelectedRows().First()
+        'Dim row As Borrowing = CType(MainXtraForm.BorrowingGridView.GetRow(rowId), Borrowing)
+        '_oid = row.Oid
 
-        Using uow As New UnitOfWork()
+        'Using uow As New UnitOfWork()
 
-            _borrowing = uow.GetObjectByKey(Of Borrowing)(_oid)
-            _book = uow.GetObjectByKey(Of Book)(_borrowing.Book.Oid)
-            _reader = uow.GetObjectByKey(Of Reader)(_borrowing.Reader.Oid)
+        '    _borrowing = uow.GetObjectByKey(Of Borrowing)(_oid)
+        '    _book = uow.GetObjectByKey(Of Book)(_borrowing.Book.Oid)
+        '    _reader = uow.GetObjectByKey(Of Reader)(_borrowing.Reader.Oid)
 
-        End Using
+        'End Using
 
     End Sub
 End Class

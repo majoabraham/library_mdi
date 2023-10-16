@@ -49,8 +49,8 @@ Public Class CheckoutXtraForm
             uow.CommitChanges()
         End Using
 
-        MainXtraForm.BorrowingGridControl.DataSource = DataManipulation.GetAllBorrowings()
-        MainXtraForm.BooksGridControl.DataSource = DataManipulation.GetAllBooks()
+        'MainXtraForm.BorrowingGridControl.DataSource = DataManipulation.GetAllBorrowings()
+        'MainXtraForm.BooksGridControl.DataSource = DataManipulation.GetAllBooks()
 
         Close()
     End Sub

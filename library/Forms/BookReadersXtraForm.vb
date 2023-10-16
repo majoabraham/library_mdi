@@ -13,8 +13,8 @@ Public Class BookReadersXtraForm
     End Sub
     Private Sub BookReadersXtraForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        Dim rowId = MainXtraForm.BooksGridView.GetSelectedRows().First()
-        Dim bookRow As Book = CType(MainXtraForm.BooksGridView.GetRow(rowId), Book)
+        Dim rowId = BooksXtraForm.BooksGridView.GetSelectedRows().First()
+        Dim bookRow As Book = CType(BooksXtraForm.BooksGridView.GetRow(rowId), Book)
 
         Dim readers = New List(Of Reader)
         Dim criteria = CriteriaOperator.FromLambda(Of Borrowing)(Function(b) b.Book.Oid = bookRow.Oid And b.CheckinDate Is Nothing)

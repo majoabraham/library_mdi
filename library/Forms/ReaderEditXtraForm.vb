@@ -49,7 +49,7 @@ Public Class ReaderEditXtraForm
             _uow.CommitChanges()
         End Using
 
-        MainXtraForm.ReadersGridControl.DataSource = DataManipulation.GetAllReaders()
+        ReadersXtraForm.ReadersGridControl.DataSource = DataManipulation.GetAllReaders()
 
         Close()
     End Sub
@@ -59,8 +59,8 @@ Public Class ReaderEditXtraForm
     End Sub
 
     Private Sub LoadReader()
-        Dim rowId = MainXtraForm.ReadersGridView.GetSelectedRows().First()
-        Dim row As Reader = CType(MainXtraForm.ReadersGridView.GetRow(rowId), Reader)
+        Dim rowId = ReadersXtraForm.ReadersGridView.GetSelectedRows().First()
+        Dim row As Reader = CType(ReadersXtraForm.ReadersGridView.GetRow(rowId), Reader)
         _oid = row.Oid
 
         _reader = _uow.GetObjectByKey(Of Reader)(_oid)

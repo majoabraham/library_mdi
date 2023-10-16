@@ -26,7 +26,7 @@ Public Class ReaderCreateXtraForm
             _uow.CommitChanges()
         End Using
 
-        MainXtraForm.ReadersGridControl.DataSource = DataManipulation.GetAllReaders()
+        ReadersXtraForm.ReadersGridControl.DataSource = DataManipulation.GetAllReaders()
 
         Close()
     End Sub

@@ -27,9 +27,7 @@ Public Class BookCreateXtraForm
             _uow.CommitChanges()
         End Using
 
-        'MainXtraForm.BooksGridControl.RefreshDataSource()
-        'MainXtraForm.BooksGridControl.Refresh()
-        MainXtraForm.BooksGridControl.DataSource = DataManipulation.GetAllBooks()
+        BooksXtraForm.BooksGridControl.DataSource = DataManipulation.GetAllBooks()
 
         Close()
     End Sub

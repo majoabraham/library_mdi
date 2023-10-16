@@ -5,7 +5,7 @@ Public Class BookEditXtraForm
     Private _oid As Integer
     Private _book As Book
     Private _uow As UnitOfWork
-
+    Private _booksXtraForm As BooksXtraForm
     Public Sub New()
         InitializeComponent()
         _uow = New UnitOfWork()
@@ -26,7 +26,7 @@ Public Class BookEditXtraForm
             _uow.CommitChanges()
         End Using
 
-        MainXtraForm.BooksGridControl.DataSource = DataManipulation.GetAllBooks()
+        BooksXtraForm.BooksGridControl.DataSource = DataManipulation.GetAllBooks()
 
         Close()
     End Sub
@@ -44,8 +44,9 @@ Public Class BookEditXtraForm
     End Sub
 
     Private Sub LoadBook()
-        Dim rowId = MainXtraForm.BooksGridView.GetSelectedRows().First()
-        Dim row As Book = CType(MainXtraForm.BooksGridView.GetRow(rowId), Book)
+
+        Dim rowId = BooksXtraForm.BooksGridView.GetSelectedRows().First()
+        Dim row As Book = CType(BooksXtraForm.BooksGridView.GetRow(rowId), Book)
         _oid = row.Oid
 
         _book = _uow.GetObjectByKey(Of Book)(_oid)
