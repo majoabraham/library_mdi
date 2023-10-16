@@ -114,6 +114,7 @@ Partial Class MainXtraForm
         Me.BooksBarSubItem.Id = 14
         Me.BooksBarSubItem.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BookCreateBarButtonItem), New DevExpress.XtraBars.LinkPersistInfo(Me.BookEditBarButtonItem), New DevExpress.XtraBars.LinkPersistInfo(Me.ShowReaderBarButtonItem)})
         Me.BooksBarSubItem.Name = "BooksBarSubItem"
+        Me.BooksBarSubItem.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
         '
         'BookCreateBarButtonItem
         '
@@ -139,6 +140,7 @@ Partial Class MainXtraForm
         Me.ReadersBarSubItem.Id = 6
         Me.ReadersBarSubItem.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.ReaderCreateBarButtonItem), New DevExpress.XtraBars.LinkPersistInfo(Me.ReaderEditBarButtonItem)})
         Me.ReadersBarSubItem.Name = "ReadersBarSubItem"
+        Me.ReadersBarSubItem.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
         '
         'ReaderCreateBarButtonItem
         '
@@ -158,6 +160,7 @@ Partial Class MainXtraForm
         Me.BorrowingsBarSubItem.Id = 23
         Me.BorrowingsBarSubItem.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.CheckoutBarButtonItem), New DevExpress.XtraBars.LinkPersistInfo(Me.CheckinBarButtonItem)})
         Me.BorrowingsBarSubItem.Name = "BorrowingsBarSubItem"
+        Me.BorrowingsBarSubItem.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
         '
         'CheckoutBarButtonItem
         '
@@ -288,7 +291,6 @@ Partial Class MainXtraForm
         Me.IsMdiContainer = True
         Me.Name = "MainXtraForm"
         Me.Text = "My Library"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Minimized
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DockManager1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DocumentManager1, System.ComponentModel.ISupportInitialize).EndInit()

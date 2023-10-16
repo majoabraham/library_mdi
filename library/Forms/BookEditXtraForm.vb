@@ -2,13 +2,13 @@
 
 Public Class BookEditXtraForm
 
-    Private _oid As Integer
     Private _book As Book
     Private _uow As UnitOfWork
     Private _booksXtraForm As BooksXtraForm
     Public Sub New()
         InitializeComponent()
         _uow = New UnitOfWork()
+        _booksXtraForm = CType(MainXtraForm.ActiveMdiChild, BooksXtraForm)
     End Sub
     Private Sub CancelSimpleButton_Click(sender As Object, e As EventArgs) Handles CancelSimpleButton.Click
         Close()
@@ -26,7 +26,7 @@ Public Class BookEditXtraForm
             _uow.CommitChanges()
         End Using
 
-        BooksXtraForm.BooksGridControl.DataSource = DataManipulation.GetAllBooks()
+        _booksXtraForm.BooksGridControl.DataSource = DataManipulation.GetAllBooks()
 
         Close()
     End Sub
@@ -45,11 +45,10 @@ Public Class BookEditXtraForm
 
     Private Sub LoadBook()
 
-        Dim rowId = BooksXtraForm.BooksGridView.GetSelectedRows().First()
-        Dim row As Book = CType(BooksXtraForm.BooksGridView.GetRow(rowId), Book)
-        _oid = row.Oid
+        Dim rowId = _booksXtraForm.BooksGridView.GetSelectedRows().First()
+        Dim row As Book = CType(_booksXtraForm.BooksGridView.GetRow(rowId), Book)
 
-        _book = _uow.GetObjectByKey(Of Book)(_oid)
+        _book = _uow.GetObjectByKey(Of Book)(row.Oid)
 
     End Sub
 End Class

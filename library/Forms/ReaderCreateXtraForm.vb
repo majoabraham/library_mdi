@@ -3,11 +3,13 @@
 Public Class ReaderCreateXtraForm
 
     Private _uow As UnitOfWork
+    Private _readersXtraForm As ReadersXtraForm
 
     Public Sub New()
 
         InitializeComponent()
         _uow = New UnitOfWork()
+        _readersXtraForm = CType(MainXtraForm.ActiveMdiChild, ReadersXtraForm)
 
     End Sub
     Private Sub CancelSimpleButton_Click(sender As Object, e As EventArgs) Handles CancelSimpleButton.Click
@@ -26,7 +28,7 @@ Public Class ReaderCreateXtraForm
             _uow.CommitChanges()
         End Using
 
-        ReadersXtraForm.ReadersGridControl.DataSource = DataManipulation.GetAllReaders()
+        _readersXtraForm.ReadersGridControl.DataSource = DataManipulation.GetAllReaders()
 
         Close()
     End Sub

@@ -2,32 +2,20 @@
 
 Public Class ReaderEditXtraForm
 
-    Private _oid As Integer
     Private _reader As Reader
     Private _uow As UnitOfWork
+    Private _readersXtraForm As ReadersXtraForm
 
     Public Sub New()
         InitializeComponent()
         _uow = New UnitOfWork()
-        LoadReader()
-    End Sub
-
-    Public Sub New(reader As Reader)
-        InitializeComponent()
-
-        _uow = New UnitOfWork()
-
-        _reader = reader
-
-        FirstNameTextEdit.Enabled = False
-        LastNameTextEdit.Enabled = False
-        IdCardTextEdit.Enabled = False
-        BirthDayDateEdit.Enabled = False
-        SaveSimpleButton.Enabled = False
+        _readersXtraForm = CType(MainXtraForm.ActiveMdiChild, ReadersXtraForm)
 
     End Sub
 
     Private Sub ReaderEditXtraForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        LoadReader()
 
         FirstNameTextEdit.Text = _reader.FirstName
         LastNameTextEdit.Text = _reader.LastName
@@ -39,8 +27,6 @@ Public Class ReaderEditXtraForm
     Private Sub SaveSimpleButton_Click(sender As Object, e As EventArgs) Handles SaveSimpleButton.Click
         Using _uow
 
-            _reader = _uow.GetObjectByKey(Of Reader)(_oid)
-
             _reader.FirstName = FirstNameTextEdit.Text
             _reader.LastName = LastNameTextEdit.Text
             _reader.IdCard = IdCardTextEdit.Text
@@ -49,7 +35,7 @@ Public Class ReaderEditXtraForm
             _uow.CommitChanges()
         End Using
 
-        ReadersXtraForm.ReadersGridControl.DataSource = DataManipulation.GetAllReaders()
+        _readersXtraForm.ReadersGridControl.DataSource = DataManipulation.GetAllReaders()
 
         Close()
     End Sub
@@ -59,11 +45,10 @@ Public Class ReaderEditXtraForm
     End Sub
 
     Private Sub LoadReader()
-        Dim rowId = ReadersXtraForm.ReadersGridView.GetSelectedRows().First()
-        Dim row As Reader = CType(ReadersXtraForm.ReadersGridView.GetRow(rowId), Reader)
-        _oid = row.Oid
+        Dim rowId = _readersXtraForm.ReadersGridView.GetSelectedRows().First()
+        Dim row As Reader = CType(_readersXtraForm.ReadersGridView.GetRow(rowId), Reader)
 
-        _reader = _uow.GetObjectByKey(Of Reader)(_oid)
+        _reader = _uow.GetObjectByKey(Of Reader)(row.Oid)
 
     End Sub
 End Class

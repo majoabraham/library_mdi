@@ -33,13 +33,13 @@ Partial Class BorrowingsXtraForm
         Me.Root = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
+        Me.Bar1 = New DevExpress.XtraBars.Bar()
+        Me.CheckoutBarButtonItem = New DevExpress.XtraBars.BarButtonItem()
+        Me.CheckinBarButtonItem = New DevExpress.XtraBars.BarButtonItem()
         Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlBottom = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlRight = New DevExpress.XtraBars.BarDockControl()
-        Me.Bar1 = New DevExpress.XtraBars.Bar()
-        Me.CheckoutBarButtonItem = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem2 = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.BorrowingGridControl, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -140,8 +140,31 @@ Partial Class BorrowingsXtraForm
         Me.BarManager1.DockControls.Add(Me.barDockControlLeft)
         Me.BarManager1.DockControls.Add(Me.barDockControlRight)
         Me.BarManager1.Form = Me
-        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.CheckoutBarButtonItem, Me.BarButtonItem2})
+        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.CheckoutBarButtonItem, Me.CheckinBarButtonItem})
         Me.BarManager1.MaxItemId = 2
+        '
+        'Bar1
+        '
+        Me.Bar1.BarName = "Tools"
+        Me.Bar1.DockCol = 0
+        Me.Bar1.DockRow = 0
+        Me.Bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top
+        Me.Bar1.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.CheckoutBarButtonItem), New DevExpress.XtraBars.LinkPersistInfo(Me.CheckinBarButtonItem)})
+        Me.Bar1.Text = "Tools"
+        '
+        'CheckoutBarButtonItem
+        '
+        Me.CheckoutBarButtonItem.Hint = "Checkout Book"
+        Me.CheckoutBarButtonItem.Id = 0
+        Me.CheckoutBarButtonItem.ImageOptions.SvgImage = CType(resources.GetObject("CheckoutBarButtonItem.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.CheckoutBarButtonItem.Name = "CheckoutBarButtonItem"
+        '
+        'CheckinBarButtonItem
+        '
+        Me.CheckinBarButtonItem.Hint = "Checkin Book"
+        Me.CheckinBarButtonItem.Id = 1
+        Me.CheckinBarButtonItem.ImageOptions.SvgImage = CType(resources.GetObject("BarButtonItem2.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.CheckinBarButtonItem.Name = "CheckinBarButtonItem"
         '
         'barDockControlTop
         '
@@ -174,28 +197,6 @@ Partial Class BorrowingsXtraForm
         Me.barDockControlRight.Location = New System.Drawing.Point(748, 24)
         Me.barDockControlRight.Manager = Me.BarManager1
         Me.barDockControlRight.Size = New System.Drawing.Size(0, 294)
-        '
-        'Bar1
-        '
-        Me.Bar1.BarName = "Tools"
-        Me.Bar1.DockCol = 0
-        Me.Bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top
-        Me.Bar1.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.CheckoutBarButtonItem), New DevExpress.XtraBars.LinkPersistInfo(Me.BarButtonItem2)})
-        Me.Bar1.Text = "Tools"
-        '
-        'CheckoutBarButtonItem
-        '
-        Me.CheckoutBarButtonItem.Hint = "Checkout Book"
-        Me.CheckoutBarButtonItem.Id = 0
-        Me.CheckoutBarButtonItem.ImageOptions.SvgImage = CType(resources.GetObject("BarButtonItem1.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
-        Me.CheckoutBarButtonItem.Name = "CheckoutBarButtonItem"
-        '
-        'BarButtonItem2
-        '
-        Me.BarButtonItem2.Hint = "Checkin Book"
-        Me.BarButtonItem2.Id = 1
-        Me.BarButtonItem2.ImageOptions.SvgImage = CType(resources.GetObject("BarButtonItem2.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
-        Me.BarButtonItem2.Name = "BarButtonItem2"
         '
         'BorrowingsXtraForm
         '
@@ -241,5 +242,5 @@ Partial Class BorrowingsXtraForm
     Friend WithEvents barDockControlBottom As DevExpress.XtraBars.BarDockControl
     Friend WithEvents barDockControlLeft As DevExpress.XtraBars.BarDockControl
     Friend WithEvents barDockControlRight As DevExpress.XtraBars.BarDockControl
-    Friend WithEvents BarButtonItem2 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents CheckinBarButtonItem As DevExpress.XtraBars.BarButtonItem
 End Class
