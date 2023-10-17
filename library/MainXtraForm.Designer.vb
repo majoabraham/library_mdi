@@ -40,22 +40,29 @@ Partial Class MainXtraForm
         Me.WindowBarSubItem = New DevExpress.XtraBars.BarSubItem()
         Me.Bar4 = New DevExpress.XtraBars.Bar()
         Me.FooterBarStaticItem = New DevExpress.XtraBars.BarStaticItem()
-        Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem2 = New DevExpress.XtraBars.BarButtonItem()
         Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlBottom = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlRight = New DevExpress.XtraBars.BarDockControl()
         Me.DockManager1 = New DevExpress.XtraBars.Docking.DockManager(Me.components)
+        Me.AgendaDockPanel = New DevExpress.XtraBars.Docking.DockPanel()
+        Me.DockPanel1_Container = New DevExpress.XtraBars.Docking.ControlContainer()
+        Me.BorrowingsSimpleButton = New DevExpress.XtraEditors.SimpleButton()
+        Me.ReadersSimpleButton = New DevExpress.XtraEditors.SimpleButton()
+        Me.BooksSimpleButton = New DevExpress.XtraEditors.SimpleButton()
         Me.HomeBarButtonItem = New DevExpress.XtraBars.BarButtonItem()
         Me.ViewBarButtonItem = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem3 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem2 = New DevExpress.XtraBars.BarButtonItem()
         Me.Bar1 = New DevExpress.XtraBars.Bar()
         Me.Bar3 = New DevExpress.XtraBars.Bar()
         Me.DocumentManager1 = New DevExpress.XtraBars.Docking2010.DocumentManager(Me.components)
         Me.TabbedView1 = New DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(Me.components)
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DockManager1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.AgendaDockPanel.SuspendLayout()
+        Me.DockPanel1_Container.SuspendLayout()
         CType(Me.DocumentManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TabbedView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -209,20 +216,6 @@ Partial Class MainXtraForm
         Me.FooterBarStaticItem.Id = 16
         Me.FooterBarStaticItem.Name = "FooterBarStaticItem"
         '
-        'BarButtonItem1
-        '
-        Me.BarButtonItem1.ActAsDropDown = True
-        Me.BarButtonItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown
-        Me.BarButtonItem1.Caption = "BarButtonItem1"
-        Me.BarButtonItem1.Id = 32
-        Me.BarButtonItem1.Name = "BarButtonItem1"
-        '
-        'BarButtonItem2
-        '
-        Me.BarButtonItem2.Caption = "BarButtonItem2"
-        Me.BarButtonItem2.Id = 33
-        Me.BarButtonItem2.Name = "BarButtonItem2"
-        '
         'barDockControlTop
         '
         Me.barDockControlTop.CausesValidation = False
@@ -259,7 +252,62 @@ Partial Class MainXtraForm
         '
         Me.DockManager1.Form = Me
         Me.DockManager1.MenuManager = Me.BarManager1
+        Me.DockManager1.RootPanels.AddRange(New DevExpress.XtraBars.Docking.DockPanel() {Me.AgendaDockPanel})
         Me.DockManager1.TopZIndexControls.AddRange(New String() {"DevExpress.XtraBars.BarDockControl", "DevExpress.XtraBars.StandaloneBarDockControl", "System.Windows.Forms.MenuStrip", "System.Windows.Forms.StatusStrip", "System.Windows.Forms.StatusBar", "DevExpress.XtraBars.Ribbon.RibbonStatusBar", "DevExpress.XtraBars.Ribbon.RibbonControl", "DevExpress.XtraBars.Navigation.OfficeNavigationBar", "DevExpress.XtraBars.Navigation.TileNavPane", "DevExpress.XtraBars.TabFormControl", "DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl", "DevExpress.XtraBars.ToolbarForm.ToolbarFormControl"})
+        '
+        'AgendaDockPanel
+        '
+        Me.AgendaDockPanel.Controls.Add(Me.DockPanel1_Container)
+        Me.AgendaDockPanel.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left
+        Me.AgendaDockPanel.ID = New System.Guid("b835e90f-9cd3-45ce-ba33-d8b39fa1b39a")
+        Me.AgendaDockPanel.Location = New System.Drawing.Point(0, 25)
+        Me.AgendaDockPanel.Name = "AgendaDockPanel"
+        Me.AgendaDockPanel.OriginalSize = New System.Drawing.Size(200, 200)
+        Me.AgendaDockPanel.Size = New System.Drawing.Size(200, 575)
+        Me.AgendaDockPanel.Text = "Agenda"
+        '
+        'DockPanel1_Container
+        '
+        Me.DockPanel1_Container.Controls.Add(Me.BorrowingsSimpleButton)
+        Me.DockPanel1_Container.Controls.Add(Me.ReadersSimpleButton)
+        Me.DockPanel1_Container.Controls.Add(Me.BooksSimpleButton)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(3, 26)
+        Me.DockPanel1_Container.Name = "DockPanel1_Container"
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(193, 546)
+        Me.DockPanel1_Container.TabIndex = 0
+        '
+        'BorrowingsSimpleButton
+        '
+        Me.BorrowingsSimpleButton.ImageOptions.Image = CType(resources.GetObject("SimpleButton3.ImageOptions.Image"), System.Drawing.Image)
+        Me.BorrowingsSimpleButton.Location = New System.Drawing.Point(9, 74)
+        Me.BorrowingsSimpleButton.Name = "BorrowingsSimpleButton"
+        Me.BorrowingsSimpleButton.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light
+        Me.BorrowingsSimpleButton.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.[False]
+        Me.BorrowingsSimpleButton.Size = New System.Drawing.Size(97, 23)
+        Me.BorrowingsSimpleButton.TabIndex = 2
+        Me.BorrowingsSimpleButton.Text = "Borrowings"
+        '
+        'ReadersSimpleButton
+        '
+        Me.ReadersSimpleButton.ImageOptions.Image = CType(resources.GetObject("SimpleButton2.ImageOptions.Image"), System.Drawing.Image)
+        Me.ReadersSimpleButton.Location = New System.Drawing.Point(9, 45)
+        Me.ReadersSimpleButton.Name = "ReadersSimpleButton"
+        Me.ReadersSimpleButton.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light
+        Me.ReadersSimpleButton.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.[False]
+        Me.ReadersSimpleButton.Size = New System.Drawing.Size(97, 23)
+        Me.ReadersSimpleButton.TabIndex = 1
+        Me.ReadersSimpleButton.Text = "Readers"
+        '
+        'BooksSimpleButton
+        '
+        Me.BooksSimpleButton.ImageOptions.Image = CType(resources.GetObject("SimpleButton1.ImageOptions.Image"), System.Drawing.Image)
+        Me.BooksSimpleButton.Location = New System.Drawing.Point(9, 16)
+        Me.BooksSimpleButton.Name = "BooksSimpleButton"
+        Me.BooksSimpleButton.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light
+        Me.BooksSimpleButton.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.[False]
+        Me.BooksSimpleButton.Size = New System.Drawing.Size(97, 23)
+        Me.BooksSimpleButton.TabIndex = 0
+        Me.BooksSimpleButton.Text = "Books"
         '
         'HomeBarButtonItem
         '
@@ -278,6 +326,20 @@ Partial Class MainXtraForm
         Me.BarButtonItem3.Caption = "&View"
         Me.BarButtonItem3.Id = 18
         Me.BarButtonItem3.Name = "BarButtonItem3"
+        '
+        'BarButtonItem1
+        '
+        Me.BarButtonItem1.ActAsDropDown = True
+        Me.BarButtonItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown
+        Me.BarButtonItem1.Caption = "BarButtonItem1"
+        Me.BarButtonItem1.Id = 32
+        Me.BarButtonItem1.Name = "BarButtonItem1"
+        '
+        'BarButtonItem2
+        '
+        Me.BarButtonItem2.Caption = "BarButtonItem2"
+        Me.BarButtonItem2.Id = 33
+        Me.BarButtonItem2.Name = "BarButtonItem2"
         '
         'Bar1
         '
@@ -307,6 +369,7 @@ Partial Class MainXtraForm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1106, 623)
+        Me.Controls.Add(Me.AgendaDockPanel)
         Me.Controls.Add(Me.barDockControlLeft)
         Me.Controls.Add(Me.barDockControlRight)
         Me.Controls.Add(Me.barDockControlBottom)
@@ -316,6 +379,8 @@ Partial Class MainXtraForm
         Me.Text = "My Library"
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DockManager1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.AgendaDockPanel.ResumeLayout(False)
+        Me.DockPanel1_Container.ResumeLayout(False)
         CType(Me.DocumentManager1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TabbedView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -355,4 +420,9 @@ Partial Class MainXtraForm
     Friend WithEvents DockManager1 As DevExpress.XtraBars.Docking.DockManager
     Friend WithEvents DocumentManager1 As DevExpress.XtraBars.Docking2010.DocumentManager
     Friend WithEvents TabbedView1 As DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView
+    Friend WithEvents AgendaDockPanel As DevExpress.XtraBars.Docking.DockPanel
+    Friend WithEvents DockPanel1_Container As DevExpress.XtraBars.Docking.ControlContainer
+    Friend WithEvents BorrowingsSimpleButton As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents ReadersSimpleButton As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents BooksSimpleButton As DevExpress.XtraEditors.SimpleButton
 End Class
