@@ -4,7 +4,10 @@
     End Sub
 
     Private Sub EditBarButtonItem_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles EditBarButtonItem.ItemClick
-        BookEditXtraForm.Show()
+
+        Dim bookEditXtraForm = New BookEditXtraForm(BooksGridControl, BooksGridView)
+        bookEditXtraForm.Show()
+
     End Sub
 
     Private Sub ReadersBarButtonItem_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles ReadersBarButtonItem.ItemClick

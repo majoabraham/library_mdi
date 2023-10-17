@@ -1,15 +1,28 @@
 ﻿Imports DevExpress.Xpo
+Imports DevExpress.XtraGrid
+Imports DevExpress.XtraGrid.Views.Grid
 
 Public Class BookEditXtraForm
 
     Private _book As Book
     Private _uow As UnitOfWork
-    Private _booksXtraForm As BooksXtraForm
+    Private _gridControl As GridControl
+    Private _gridView As GridView
+
     Public Sub New()
         InitializeComponent()
         _uow = New UnitOfWork()
-        _booksXtraForm = CType(MainXtraForm.ActiveMdiChild, BooksXtraForm)
     End Sub
+
+    Public Sub New(gridControl As GridControl, gridView As GridView)
+
+        InitializeComponent()
+        _uow = New UnitOfWork()
+        _gridControl = gridControl
+        _gridView = gridView
+
+    End Sub
+
     Private Sub CancelSimpleButton_Click(sender As Object, e As EventArgs) Handles CancelSimpleButton.Click
         Close()
     End Sub
@@ -26,7 +39,7 @@ Public Class BookEditXtraForm
             _uow.CommitChanges()
         End Using
 
-        _booksXtraForm.BooksGridControl.DataSource = DataManipulation.GetAllBooks()
+        _gridControl.DataSource = DataManipulation.GetAllBooks()
 
         Close()
     End Sub
@@ -45,8 +58,7 @@ Public Class BookEditXtraForm
 
     Private Sub LoadBook()
 
-        Dim rowId = _booksXtraForm.BooksGridView.GetSelectedRows().First()
-        Dim row As Book = CType(_booksXtraForm.BooksGridView.GetRow(rowId), Book)
+        Dim row As Book = CType(_gridView.GetFocusedRow(), Book)
 
         _book = _uow.GetObjectByKey(Of Book)(row.Oid)
 

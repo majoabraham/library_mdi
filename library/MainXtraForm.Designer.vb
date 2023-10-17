@@ -20,6 +20,7 @@ Partial Class MainXtraForm
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainXtraForm))
         Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Bar2 = New DevExpress.XtraBars.Bar()
         Me.AgendaBarSubItem = New DevExpress.XtraBars.BarSubItem()
@@ -39,13 +40,15 @@ Partial Class MainXtraForm
         Me.WindowBarSubItem = New DevExpress.XtraBars.BarSubItem()
         Me.Bar4 = New DevExpress.XtraBars.Bar()
         Me.FooterBarStaticItem = New DevExpress.XtraBars.BarStaticItem()
+        Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem2 = New DevExpress.XtraBars.BarButtonItem()
         Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlBottom = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlRight = New DevExpress.XtraBars.BarDockControl()
         Me.DockManager1 = New DevExpress.XtraBars.Docking.DockManager(Me.components)
-        Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem2 = New DevExpress.XtraBars.BarButtonItem()
+        Me.HomeBarButtonItem = New DevExpress.XtraBars.BarButtonItem()
+        Me.ViewBarButtonItem = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem3 = New DevExpress.XtraBars.BarButtonItem()
         Me.Bar1 = New DevExpress.XtraBars.Bar()
         Me.Bar3 = New DevExpress.XtraBars.Bar()
@@ -67,9 +70,9 @@ Partial Class MainXtraForm
         Me.BarManager1.DockControls.Add(Me.barDockControlRight)
         Me.BarManager1.DockManager = Me.DockManager1
         Me.BarManager1.Form = Me
-        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.ReadersBarSubItem, Me.BarButtonItem1, Me.BooksBarSubItem, Me.FooterBarStaticItem, Me.BarButtonItem2, Me.BarButtonItem3, Me.ReaderCreateBarButtonItem, Me.ReaderEditBarButtonItem, Me.BookCreateBarButtonItem, Me.BookEditBarButtonItem, Me.BorrowingsBarSubItem, Me.CheckinBarButtonItem, Me.CheckoutBarButtonItem, Me.ShowReaderBarButtonItem, Me.AgendaBarSubItem, Me.WindowBarSubItem, Me.BooksBarButtonItem, Me.ReadersBarButtonItem, Me.BorrowingsBarButtonItem})
+        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.ReadersBarSubItem, Me.HomeBarButtonItem, Me.BooksBarSubItem, Me.FooterBarStaticItem, Me.ViewBarButtonItem, Me.BarButtonItem3, Me.ReaderCreateBarButtonItem, Me.ReaderEditBarButtonItem, Me.BookCreateBarButtonItem, Me.BookEditBarButtonItem, Me.BorrowingsBarSubItem, Me.CheckinBarButtonItem, Me.CheckoutBarButtonItem, Me.ShowReaderBarButtonItem, Me.AgendaBarSubItem, Me.WindowBarSubItem, Me.BooksBarButtonItem, Me.ReadersBarButtonItem, Me.BorrowingsBarButtonItem, Me.BarButtonItem1, Me.BarButtonItem2})
         Me.BarManager1.MainMenu = Me.Bar2
-        Me.BarManager1.MaxItemId = 32
+        Me.BarManager1.MaxItemId = 34
         Me.BarManager1.StatusBar = Me.Bar4
         '
         'Bar2
@@ -87,25 +90,31 @@ Partial Class MainXtraForm
         '
         Me.AgendaBarSubItem.Caption = "&Agenda"
         Me.AgendaBarSubItem.Id = 27
-        Me.AgendaBarSubItem.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BooksBarButtonItem), New DevExpress.XtraBars.LinkPersistInfo(Me.ReadersBarButtonItem), New DevExpress.XtraBars.LinkPersistInfo(Me.BorrowingsBarButtonItem)})
+        Me.AgendaBarSubItem.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.BooksBarButtonItem, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(Me.ReadersBarButtonItem), New DevExpress.XtraBars.LinkPersistInfo(Me.BorrowingsBarButtonItem)})
         Me.AgendaBarSubItem.Name = "AgendaBarSubItem"
         '
         'BooksBarButtonItem
         '
         Me.BooksBarButtonItem.Caption = "Books"
         Me.BooksBarButtonItem.Id = 29
+        Me.BooksBarButtonItem.ImageOptions.Image = CType(resources.GetObject("BooksBarButtonItem.ImageOptions.Image"), System.Drawing.Image)
+        Me.BooksBarButtonItem.ImageOptions.LargeImage = CType(resources.GetObject("BooksBarButtonItem.ImageOptions.LargeImage"), System.Drawing.Image)
         Me.BooksBarButtonItem.Name = "BooksBarButtonItem"
         '
         'ReadersBarButtonItem
         '
         Me.ReadersBarButtonItem.Caption = "Readers"
         Me.ReadersBarButtonItem.Id = 30
+        Me.ReadersBarButtonItem.ImageOptions.Image = CType(resources.GetObject("ReadersBarButtonItem.ImageOptions.Image"), System.Drawing.Image)
+        Me.ReadersBarButtonItem.ImageOptions.LargeImage = CType(resources.GetObject("ReadersBarButtonItem.ImageOptions.LargeImage"), System.Drawing.Image)
         Me.ReadersBarButtonItem.Name = "ReadersBarButtonItem"
         '
         'BorrowingsBarButtonItem
         '
         Me.BorrowingsBarButtonItem.Caption = "Borrowings"
         Me.BorrowingsBarButtonItem.Id = 31
+        Me.BorrowingsBarButtonItem.ImageOptions.Image = CType(resources.GetObject("BorrowingsBarButtonItem.ImageOptions.Image"), System.Drawing.Image)
+        Me.BorrowingsBarButtonItem.ImageOptions.LargeImage = CType(resources.GetObject("BorrowingsBarButtonItem.ImageOptions.LargeImage"), System.Drawing.Image)
         Me.BorrowingsBarButtonItem.Name = "BorrowingsBarButtonItem"
         '
         'BooksBarSubItem
@@ -200,6 +209,20 @@ Partial Class MainXtraForm
         Me.FooterBarStaticItem.Id = 16
         Me.FooterBarStaticItem.Name = "FooterBarStaticItem"
         '
+        'BarButtonItem1
+        '
+        Me.BarButtonItem1.ActAsDropDown = True
+        Me.BarButtonItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown
+        Me.BarButtonItem1.Caption = "BarButtonItem1"
+        Me.BarButtonItem1.Id = 32
+        Me.BarButtonItem1.Name = "BarButtonItem1"
+        '
+        'BarButtonItem2
+        '
+        Me.BarButtonItem2.Caption = "BarButtonItem2"
+        Me.BarButtonItem2.Id = 33
+        Me.BarButtonItem2.Name = "BarButtonItem2"
+        '
         'barDockControlTop
         '
         Me.barDockControlTop.CausesValidation = False
@@ -238,17 +261,17 @@ Partial Class MainXtraForm
         Me.DockManager1.MenuManager = Me.BarManager1
         Me.DockManager1.TopZIndexControls.AddRange(New String() {"DevExpress.XtraBars.BarDockControl", "DevExpress.XtraBars.StandaloneBarDockControl", "System.Windows.Forms.MenuStrip", "System.Windows.Forms.StatusStrip", "System.Windows.Forms.StatusBar", "DevExpress.XtraBars.Ribbon.RibbonStatusBar", "DevExpress.XtraBars.Ribbon.RibbonControl", "DevExpress.XtraBars.Navigation.OfficeNavigationBar", "DevExpress.XtraBars.Navigation.TileNavPane", "DevExpress.XtraBars.TabFormControl", "DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl", "DevExpress.XtraBars.ToolbarForm.ToolbarFormControl"})
         '
-        'BarButtonItem1
+        'HomeBarButtonItem
         '
-        Me.BarButtonItem1.Caption = "&Home"
-        Me.BarButtonItem1.Id = 9
-        Me.BarButtonItem1.Name = "BarButtonItem1"
+        Me.HomeBarButtonItem.Caption = "&Home"
+        Me.HomeBarButtonItem.Id = 9
+        Me.HomeBarButtonItem.Name = "HomeBarButtonItem"
         '
-        'BarButtonItem2
+        'ViewBarButtonItem
         '
-        Me.BarButtonItem2.Caption = "&View"
-        Me.BarButtonItem2.Id = 17
-        Me.BarButtonItem2.Name = "BarButtonItem2"
+        Me.ViewBarButtonItem.Caption = "&View"
+        Me.ViewBarButtonItem.Id = 17
+        Me.ViewBarButtonItem.Name = "ViewBarButtonItem"
         '
         'BarButtonItem3
         '
@@ -306,13 +329,13 @@ Partial Class MainXtraForm
     Friend WithEvents barDockControlLeft As DevExpress.XtraBars.BarDockControl
     Friend WithEvents barDockControlRight As DevExpress.XtraBars.BarDockControl
     Friend WithEvents ReadersBarSubItem As DevExpress.XtraBars.BarSubItem
-    Friend WithEvents BarButtonItem1 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents HomeBarButtonItem As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BooksBarSubItem As DevExpress.XtraBars.BarSubItem
     Friend WithEvents Bar1 As DevExpress.XtraBars.Bar
     Friend WithEvents Bar3 As DevExpress.XtraBars.Bar
     Friend WithEvents Bar4 As DevExpress.XtraBars.Bar
     Friend WithEvents FooterBarStaticItem As DevExpress.XtraBars.BarStaticItem
-    Friend WithEvents BarButtonItem2 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents ViewBarButtonItem As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonItem3 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents ReaderCreateBarButtonItem As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents ReaderEditBarButtonItem As DevExpress.XtraBars.BarButtonItem
@@ -327,6 +350,8 @@ Partial Class MainXtraForm
     Friend WithEvents BooksBarButtonItem As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents ReadersBarButtonItem As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BorrowingsBarButtonItem As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonItem1 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonItem2 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents DockManager1 As DevExpress.XtraBars.Docking.DockManager
     Friend WithEvents DocumentManager1 As DevExpress.XtraBars.Docking2010.DocumentManager
     Friend WithEvents TabbedView1 As DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView

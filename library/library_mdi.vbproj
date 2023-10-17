@@ -153,6 +153,12 @@
     <Compile Include="DataAccess\DataManipulation.vb" />
     <Compile Include="DataAccess\Init.vb" />
     <Compile Include="DataAccess\Reader.vb" />
+    <Compile Include="Forms\AgendaXtraForm.Designer.vb">
+      <DependentUpon>AgendaXtraForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AgendaXtraForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\BookCreateXtraForm.Designer.vb">
       <DependentUpon>BookCreateXtraForm.vb</DependentUpon>
     </Compile>
@@ -225,6 +231,9 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
+    <EmbeddedResource Include="Forms\AgendaXtraForm.resx">
+      <DependentUpon>AgendaXtraForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\BookCreateXtraForm.resx">
       <DependentUpon>BookCreateXtraForm.vb</DependentUpon>
     </EmbeddedResource>

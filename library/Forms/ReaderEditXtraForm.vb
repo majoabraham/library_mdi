@@ -1,15 +1,27 @@
 ﻿Imports DevExpress.Xpo
+Imports DevExpress.XtraGrid
+Imports DevExpress.XtraGrid.Views.Grid
 
 Public Class ReaderEditXtraForm
 
     Private _reader As Reader
     Private _uow As UnitOfWork
-    Private _readersXtraForm As ReadersXtraForm
+    Private _gridControl As GridControl
+    Private _gridView As GridView
 
     Public Sub New()
+
         InitializeComponent()
         _uow = New UnitOfWork()
-        _readersXtraForm = CType(MainXtraForm.ActiveMdiChild, ReadersXtraForm)
+
+    End Sub
+
+    Public Sub New(gridControl As GridControl, gridView As GridView)
+
+        InitializeComponent()
+        _uow = New UnitOfWork()
+        _gridControl = gridControl
+        _gridView = gridView
 
     End Sub
 
@@ -35,7 +47,7 @@ Public Class ReaderEditXtraForm
             _uow.CommitChanges()
         End Using
 
-        _readersXtraForm.ReadersGridControl.DataSource = DataManipulation.GetAllReaders()
+        _gridControl.DataSource = DataManipulation.GetAllReaders()
 
         Close()
     End Sub
@@ -45,8 +57,8 @@ Public Class ReaderEditXtraForm
     End Sub
 
     Private Sub LoadReader()
-        Dim rowId = _readersXtraForm.ReadersGridView.GetSelectedRows().First()
-        Dim row As Reader = CType(_readersXtraForm.ReadersGridView.GetRow(rowId), Reader)
+
+        Dim row As Reader = CType(_gridView.GetFocusedRow(), Reader)
 
         _reader = _uow.GetObjectByKey(Of Reader)(row.Oid)
 

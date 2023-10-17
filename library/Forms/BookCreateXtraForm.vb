@@ -1,17 +1,26 @@
 ﻿Imports DevExpress.Xpo
+Imports DevExpress.XtraGrid
 
 Public Class BookCreateXtraForm
 
     Private _uow As UnitOfWork
-    Private _booksXtraForm As BooksXtraForm
+    Private _gridControl As GridControl
 
     Public Sub New()
 
         InitializeComponent()
         _uow = New UnitOfWork()
-        _booksXtraForm = CType(MainXtraForm.ActiveMdiChild, BooksXtraForm)
 
     End Sub
+
+    Public Sub New(gridControl As GridControl)
+
+        InitializeComponent()
+        _uow = New UnitOfWork()
+        _gridControl = gridControl
+
+    End Sub
+
     Private Sub CancelSimpleButton_Click(sender As Object, e As EventArgs) Handles CancelSimpleButton.Click
         Close()
     End Sub
@@ -29,7 +38,7 @@ Public Class BookCreateXtraForm
             _uow.CommitChanges()
         End Using
 
-        _booksXtraForm.BooksGridControl.DataSource = DataManipulation.GetAllBooks()
+        _gridControl.DataSource = DataManipulation.GetAllBooks()
 
         Close()
     End Sub

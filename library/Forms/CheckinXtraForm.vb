@@ -1,18 +1,30 @@
 ﻿Imports DevExpress.Xpo
+Imports DevExpress.XtraGrid
+Imports DevExpress.XtraGrid.Views.Grid
 
 Public Class CheckinXtraForm
 
     Private _uow As UnitOfWork
     Private _borrowing As Borrowing
-    Private _borrowingsXtraForm As BorrowingsXtraForm
+    Private _gridControl As GridControl
+    Private _gridView As GridView
 
     Public Sub New()
 
         InitializeComponent()
         _uow = New UnitOfWork()
-        _borrowingsXtraForm = CType(MainXtraForm.ActiveMdiChild, BorrowingsXtraForm)
 
     End Sub
+
+    Public Sub New(gridControl As GridControl, gridView As GridView)
+
+        InitializeComponent()
+        _uow = New UnitOfWork()
+        _gridControl = gridControl
+        _gridView = gridView
+
+    End Sub
+
     Private Sub CheckinXtraForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         LoadBorrowing()
@@ -39,10 +51,13 @@ Public Class CheckinXtraForm
     End Sub
 
     Private Sub CancelSimpleButton_Click(sender As Object, e As EventArgs) Handles CancelSimpleButton.Click
+
         Close()
+
     End Sub
 
     Private Sub SaveSimpleButton_Click(sender As Object, e As EventArgs) Handles SaveSimpleButton.Click
+
         Using _uow
 
             _borrowing.CheckinDate = CheckinDateEdit.DateTime
@@ -53,22 +68,22 @@ Public Class CheckinXtraForm
             _uow.CommitChanges()
         End Using
 
-        _borrowingsXtraForm.BorrowingGridControl.DataSource = DataManipulation.GetAllBorrowings()
+        _gridControl.DataSource = DataManipulation.GetAllBorrowings()
 
-        'BooksXtraForm.BooksGridControl.DataSource = DataManipulation.GetAllBooks()
         For Each child In MainXtraForm.MdiChildren
             Dim form = TryCast(child, BooksXtraForm)
-            If TryCast(child, BooksXtraForm) IsNot Nothing Then
+            If form IsNot Nothing Then
                 form.BooksGridControl.DataSource = DataManipulation.GetAllBooks()
             End If
         Next
 
         Close()
+
     End Sub
 
     Private Sub LoadBorrowing()
-        Dim rowId = _borrowingsXtraForm.BorrowingGridView.GetSelectedRows().First()
-        Dim row As Borrowing = CType(_borrowingsXtraForm.BorrowingGridView.GetRow(rowId), Borrowing)
+
+        Dim row As Borrowing = CType(_gridView.GetFocusedRow(), Borrowing)
 
         _borrowing = _uow.GetObjectByKey(Of Borrowing)(row.Oid)
 

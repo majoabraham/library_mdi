@@ -1,15 +1,23 @@
 ﻿Imports DevExpress.Data.Filtering
 Imports DevExpress.Xpo
+Imports DevExpress.XtraGrid
 
 Public Class CheckoutXtraForm
 
     Private _uow As UnitOfWork
-    Private _borrowingsXtraForm As BorrowingsXtraForm
+    Private _gridControl As GridControl
     Public Sub New()
 
         InitializeComponent()
         _uow = New UnitOfWork()
-        _borrowingsXtraForm = CType(MainXtraForm.ActiveMdiChild, BorrowingsXtraForm)
+
+    End Sub
+
+    Public Sub New(gridControl As GridControl)
+
+        InitializeComponent()
+        _uow = New UnitOfWork()
+        _gridControl = gridControl
 
     End Sub
 
@@ -54,16 +62,15 @@ Public Class CheckoutXtraForm
             _uow.CommitChanges()
         End Using
 
-        _borrowingsXtraForm.BorrowingGridControl.DataSource = DataManipulation.GetAllBorrowings()
+        _gridControl.DataSource = DataManipulation.GetAllBorrowings()
 
-        'BooksXtraForm.BooksGridControl.DataSource = DataManipulation.GetAllBooks()
+
         For Each child In MainXtraForm.MdiChildren
             Dim form = TryCast(child, BooksXtraForm)
-            If TryCast(child, BooksXtraForm) IsNot Nothing Then
+            If form IsNot Nothing Then
                 form.BooksGridControl.DataSource = DataManipulation.GetAllBooks()
             End If
         Next
-
 
         Close()
     End Sub
