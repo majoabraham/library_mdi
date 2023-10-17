@@ -278,6 +278,8 @@ Partial Class MainXtraForm
         '
         'BorrowingsSimpleButton
         '
+        Me.BorrowingsSimpleButton.Appearance.Options.UseTextOptions = True
+        Me.BorrowingsSimpleButton.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.BorrowingsSimpleButton.ImageOptions.Image = CType(resources.GetObject("SimpleButton3.ImageOptions.Image"), System.Drawing.Image)
         Me.BorrowingsSimpleButton.Location = New System.Drawing.Point(9, 74)
         Me.BorrowingsSimpleButton.Name = "BorrowingsSimpleButton"
@@ -289,6 +291,8 @@ Partial Class MainXtraForm
         '
         'ReadersSimpleButton
         '
+        Me.ReadersSimpleButton.Appearance.Options.UseTextOptions = True
+        Me.ReadersSimpleButton.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.ReadersSimpleButton.ImageOptions.Image = CType(resources.GetObject("SimpleButton2.ImageOptions.Image"), System.Drawing.Image)
         Me.ReadersSimpleButton.Location = New System.Drawing.Point(9, 45)
         Me.ReadersSimpleButton.Name = "ReadersSimpleButton"
@@ -300,6 +304,8 @@ Partial Class MainXtraForm
         '
         'BooksSimpleButton
         '
+        Me.BooksSimpleButton.Appearance.Options.UseTextOptions = True
+        Me.BooksSimpleButton.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.BooksSimpleButton.ImageOptions.Image = CType(resources.GetObject("SimpleButton1.ImageOptions.Image"), System.Drawing.Image)
         Me.BooksSimpleButton.Location = New System.Drawing.Point(9, 16)
         Me.BooksSimpleButton.Name = "BooksSimpleButton"
