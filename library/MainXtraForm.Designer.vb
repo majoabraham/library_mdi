@@ -59,6 +59,7 @@ Partial Class MainXtraForm
         Me.Bar3 = New DevExpress.XtraBars.Bar()
         Me.DocumentManager1 = New DevExpress.XtraBars.Docking2010.DocumentManager(Me.components)
         Me.TabbedView1 = New DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(Me.components)
+        Me.BarMdiChildrenListItem1 = New DevExpress.XtraBars.BarMdiChildrenListItem()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DockManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.AgendaDockPanel.SuspendLayout()
@@ -77,9 +78,9 @@ Partial Class MainXtraForm
         Me.BarManager1.DockControls.Add(Me.barDockControlRight)
         Me.BarManager1.DockManager = Me.DockManager1
         Me.BarManager1.Form = Me
-        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.ReadersBarSubItem, Me.HomeBarButtonItem, Me.BooksBarSubItem, Me.FooterBarStaticItem, Me.ViewBarButtonItem, Me.BarButtonItem3, Me.ReaderCreateBarButtonItem, Me.ReaderEditBarButtonItem, Me.BookCreateBarButtonItem, Me.BookEditBarButtonItem, Me.BorrowingsBarSubItem, Me.CheckinBarButtonItem, Me.CheckoutBarButtonItem, Me.ShowReaderBarButtonItem, Me.AgendaBarSubItem, Me.WindowBarSubItem, Me.BooksBarButtonItem, Me.ReadersBarButtonItem, Me.BorrowingsBarButtonItem, Me.BarButtonItem1, Me.BarButtonItem2})
+        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.ReadersBarSubItem, Me.HomeBarButtonItem, Me.BooksBarSubItem, Me.FooterBarStaticItem, Me.ViewBarButtonItem, Me.BarButtonItem3, Me.ReaderCreateBarButtonItem, Me.ReaderEditBarButtonItem, Me.BookCreateBarButtonItem, Me.BookEditBarButtonItem, Me.BorrowingsBarSubItem, Me.CheckinBarButtonItem, Me.CheckoutBarButtonItem, Me.ShowReaderBarButtonItem, Me.AgendaBarSubItem, Me.WindowBarSubItem, Me.BooksBarButtonItem, Me.ReadersBarButtonItem, Me.BorrowingsBarButtonItem, Me.BarButtonItem1, Me.BarButtonItem2, Me.BarMdiChildrenListItem1})
         Me.BarManager1.MainMenu = Me.Bar2
-        Me.BarManager1.MaxItemId = 34
+        Me.BarManager1.MaxItemId = 35
         Me.BarManager1.StatusBar = Me.Bar4
         '
         'Bar2
@@ -194,6 +195,7 @@ Partial Class MainXtraForm
         '
         Me.WindowBarSubItem.Caption = "&Window"
         Me.WindowBarSubItem.Id = 28
+        Me.WindowBarSubItem.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BarMdiChildrenListItem1)})
         Me.WindowBarSubItem.Name = "WindowBarSubItem"
         '
         'Bar4
@@ -280,7 +282,7 @@ Partial Class MainXtraForm
         '
         Me.BorrowingsSimpleButton.Appearance.Options.UseTextOptions = True
         Me.BorrowingsSimpleButton.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
-        Me.BorrowingsSimpleButton.ImageOptions.Image = CType(resources.GetObject("SimpleButton3.ImageOptions.Image"), System.Drawing.Image)
+        Me.BorrowingsSimpleButton.ImageOptions.Image = CType(resources.GetObject("BorrowingsSimpleButton.ImageOptions.Image"), System.Drawing.Image)
         Me.BorrowingsSimpleButton.Location = New System.Drawing.Point(9, 74)
         Me.BorrowingsSimpleButton.Name = "BorrowingsSimpleButton"
         Me.BorrowingsSimpleButton.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light
@@ -293,7 +295,7 @@ Partial Class MainXtraForm
         '
         Me.ReadersSimpleButton.Appearance.Options.UseTextOptions = True
         Me.ReadersSimpleButton.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
-        Me.ReadersSimpleButton.ImageOptions.Image = CType(resources.GetObject("SimpleButton2.ImageOptions.Image"), System.Drawing.Image)
+        Me.ReadersSimpleButton.ImageOptions.Image = CType(resources.GetObject("ReadersSimpleButton.ImageOptions.Image"), System.Drawing.Image)
         Me.ReadersSimpleButton.Location = New System.Drawing.Point(9, 45)
         Me.ReadersSimpleButton.Name = "ReadersSimpleButton"
         Me.ReadersSimpleButton.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light
@@ -306,7 +308,7 @@ Partial Class MainXtraForm
         '
         Me.BooksSimpleButton.Appearance.Options.UseTextOptions = True
         Me.BooksSimpleButton.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
-        Me.BooksSimpleButton.ImageOptions.Image = CType(resources.GetObject("SimpleButton1.ImageOptions.Image"), System.Drawing.Image)
+        Me.BooksSimpleButton.ImageOptions.Image = CType(resources.GetObject("BooksSimpleButton.ImageOptions.Image"), System.Drawing.Image)
         Me.BooksSimpleButton.Location = New System.Drawing.Point(9, 16)
         Me.BooksSimpleButton.Name = "BooksSimpleButton"
         Me.BooksSimpleButton.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light
@@ -370,6 +372,12 @@ Partial Class MainXtraForm
         Me.DocumentManager1.View = Me.TabbedView1
         Me.DocumentManager1.ViewCollection.AddRange(New DevExpress.XtraBars.Docking2010.Views.BaseView() {Me.TabbedView1})
         '
+        'BarMdiChildrenListItem1
+        '
+        Me.BarMdiChildrenListItem1.Caption = "BarMdiChildrenListItem1"
+        Me.BarMdiChildrenListItem1.Id = 34
+        Me.BarMdiChildrenListItem1.Name = "BarMdiChildrenListItem1"
+        '
         'MainXtraForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -431,4 +439,5 @@ Partial Class MainXtraForm
     Friend WithEvents BorrowingsSimpleButton As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents ReadersSimpleButton As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents BooksSimpleButton As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents BarMdiChildrenListItem1 As DevExpress.XtraBars.BarMdiChildrenListItem
 End Class

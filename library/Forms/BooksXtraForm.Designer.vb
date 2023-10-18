@@ -38,6 +38,7 @@ Partial Class BooksXtraForm
         Me.CreateBarButtonItem = New DevExpress.XtraBars.BarButtonItem()
         Me.EditBarButtonItem = New DevExpress.XtraBars.BarButtonItem()
         Me.ReadersBarButtonItem = New DevExpress.XtraBars.BarButtonItem()
+        Me.ReportBarButtonItem = New DevExpress.XtraBars.BarButtonItem()
         Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlBottom = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl()
@@ -151,8 +152,8 @@ Partial Class BooksXtraForm
         Me.BarManager1.DockControls.Add(Me.barDockControlLeft)
         Me.BarManager1.DockControls.Add(Me.barDockControlRight)
         Me.BarManager1.Form = Me
-        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.CreateBarButtonItem, Me.EditBarButtonItem, Me.ReadersBarButtonItem})
-        Me.BarManager1.MaxItemId = 3
+        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.CreateBarButtonItem, Me.EditBarButtonItem, Me.ReadersBarButtonItem, Me.ReportBarButtonItem})
+        Me.BarManager1.MaxItemId = 4
         '
         'Bar1
         '
@@ -160,7 +161,7 @@ Partial Class BooksXtraForm
         Me.Bar1.DockCol = 0
         Me.Bar1.DockRow = 0
         Me.Bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top
-        Me.Bar1.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.CreateBarButtonItem), New DevExpress.XtraBars.LinkPersistInfo(Me.EditBarButtonItem), New DevExpress.XtraBars.LinkPersistInfo(Me.ReadersBarButtonItem)})
+        Me.Bar1.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.CreateBarButtonItem), New DevExpress.XtraBars.LinkPersistInfo(Me.EditBarButtonItem), New DevExpress.XtraBars.LinkPersistInfo(Me.ReadersBarButtonItem), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.ReportBarButtonItem, "", True, True, True, 0, Nothing, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)})
         Me.Bar1.Text = "Tools"
         '
         'CreateBarButtonItem
@@ -181,8 +182,16 @@ Partial Class BooksXtraForm
         '
         Me.ReadersBarButtonItem.Hint = "Show Readers"
         Me.ReadersBarButtonItem.Id = 2
-        Me.ReadersBarButtonItem.ImageOptions.SvgImage = CType(resources.GetObject("BarButtonItem2.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.ReadersBarButtonItem.ImageOptions.SvgImage = CType(resources.GetObject("ReadersBarButtonItem.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.ReadersBarButtonItem.Name = "ReadersBarButtonItem"
+        '
+        'ReportBarButtonItem
+        '
+        Me.ReportBarButtonItem.Hint = "Books Report"
+        Me.ReportBarButtonItem.Id = 3
+        Me.ReportBarButtonItem.ImageOptions.Image = CType(resources.GetObject("ReportBarButtonItem.ImageOptions.Image"), System.Drawing.Image)
+        Me.ReportBarButtonItem.ImageOptions.LargeImage = CType(resources.GetObject("ReportBarButtonItem.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.ReportBarButtonItem.Name = "ReportBarButtonItem"
         '
         'barDockControlTop
         '
@@ -263,4 +272,5 @@ Partial Class BooksXtraForm
     Friend WithEvents barDockControlRight As DevExpress.XtraBars.BarDockControl
     Friend WithEvents EditBarButtonItem As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents ReadersBarButtonItem As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents ReportBarButtonItem As DevExpress.XtraBars.BarButtonItem
 End Class
