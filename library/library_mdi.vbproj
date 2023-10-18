@@ -186,6 +186,12 @@
     <Compile Include="Forms\BookReadersXtraForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\BooksReadersXtraReport.Designer.vb">
+      <DependentUpon>BooksReadersXtraReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BooksReadersXtraReport.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Forms\BooksXtraForm.Designer.vb">
       <DependentUpon>BooksXtraForm.vb</DependentUpon>
     </Compile>
@@ -257,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BookReadersXtraForm.resx">
       <DependentUpon>BookReadersXtraForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BooksReadersXtraReport.resx">
+      <DependentUpon>BooksReadersXtraReport.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BooksXtraForm.resx">
       <DependentUpon>BooksXtraForm.vb</DependentUpon>
