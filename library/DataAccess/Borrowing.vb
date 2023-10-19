@@ -51,4 +51,8 @@ Public Class Borrowing : Inherits XPObject
         End Set
     End Property
 
+    Public Overrides Function ToString As String
+        Return $"{_book.Author}: {_book.Title} - {_reader.FullName}"
+    End Function
+
 End Class

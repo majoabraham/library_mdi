@@ -36,6 +36,7 @@ Partial Class BorrowingsXtraForm
         Me.Bar1 = New DevExpress.XtraBars.Bar()
         Me.CheckoutBarButtonItem = New DevExpress.XtraBars.BarButtonItem()
         Me.CheckinBarButtonItem = New DevExpress.XtraBars.BarButtonItem()
+        Me.CalendarBarButtonItem = New DevExpress.XtraBars.BarButtonItem()
         Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlBottom = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl()
@@ -140,8 +141,8 @@ Partial Class BorrowingsXtraForm
         Me.BarManager1.DockControls.Add(Me.barDockControlLeft)
         Me.BarManager1.DockControls.Add(Me.barDockControlRight)
         Me.BarManager1.Form = Me
-        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.CheckoutBarButtonItem, Me.CheckinBarButtonItem})
-        Me.BarManager1.MaxItemId = 2
+        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.CheckoutBarButtonItem, Me.CheckinBarButtonItem, Me.CalendarBarButtonItem})
+        Me.BarManager1.MaxItemId = 3
         '
         'Bar1
         '
@@ -149,7 +150,7 @@ Partial Class BorrowingsXtraForm
         Me.Bar1.DockCol = 0
         Me.Bar1.DockRow = 0
         Me.Bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top
-        Me.Bar1.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.CheckoutBarButtonItem), New DevExpress.XtraBars.LinkPersistInfo(Me.CheckinBarButtonItem)})
+        Me.Bar1.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.CheckoutBarButtonItem), New DevExpress.XtraBars.LinkPersistInfo(Me.CheckinBarButtonItem), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.CalendarBarButtonItem, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)})
         Me.Bar1.Text = "Tools"
         '
         'CheckoutBarButtonItem
@@ -163,8 +164,16 @@ Partial Class BorrowingsXtraForm
         '
         Me.CheckinBarButtonItem.Hint = "Checkin Book"
         Me.CheckinBarButtonItem.Id = 1
-        Me.CheckinBarButtonItem.ImageOptions.SvgImage = CType(resources.GetObject("BarButtonItem2.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.CheckinBarButtonItem.ImageOptions.SvgImage = CType(resources.GetObject("CheckinBarButtonItem.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.CheckinBarButtonItem.Name = "CheckinBarButtonItem"
+        '
+        'CalendarBarButtonItem
+        '
+        Me.CalendarBarButtonItem.Hint = "Calendar"
+        Me.CalendarBarButtonItem.Id = 2
+        Me.CalendarBarButtonItem.ImageOptions.Image = CType(resources.GetObject("CalendarBarButtonItem.ImageOptions.Image"), System.Drawing.Image)
+        Me.CalendarBarButtonItem.ImageOptions.LargeImage = CType(resources.GetObject("CalendarBarButtonItem.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.CalendarBarButtonItem.Name = "CalendarBarButtonItem"
         '
         'barDockControlTop
         '
@@ -243,4 +252,5 @@ Partial Class BorrowingsXtraForm
     Friend WithEvents barDockControlLeft As DevExpress.XtraBars.BarDockControl
     Friend WithEvents barDockControlRight As DevExpress.XtraBars.BarDockControl
     Friend WithEvents CheckinBarButtonItem As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents CalendarBarButtonItem As DevExpress.XtraBars.BarButtonItem
 End Class

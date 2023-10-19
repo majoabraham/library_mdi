@@ -38,6 +38,7 @@ Partial Class MainXtraForm
         Me.CheckoutBarButtonItem = New DevExpress.XtraBars.BarButtonItem()
         Me.CheckinBarButtonItem = New DevExpress.XtraBars.BarButtonItem()
         Me.WindowBarSubItem = New DevExpress.XtraBars.BarSubItem()
+        Me.BarMdiChildrenListItem1 = New DevExpress.XtraBars.BarMdiChildrenListItem()
         Me.Bar4 = New DevExpress.XtraBars.Bar()
         Me.FooterBarStaticItem = New DevExpress.XtraBars.BarStaticItem()
         Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
@@ -59,7 +60,6 @@ Partial Class MainXtraForm
         Me.Bar3 = New DevExpress.XtraBars.Bar()
         Me.DocumentManager1 = New DevExpress.XtraBars.Docking2010.DocumentManager(Me.components)
         Me.TabbedView1 = New DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(Me.components)
-        Me.BarMdiChildrenListItem1 = New DevExpress.XtraBars.BarMdiChildrenListItem()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DockManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.AgendaDockPanel.SuspendLayout()
@@ -197,6 +197,12 @@ Partial Class MainXtraForm
         Me.WindowBarSubItem.Id = 28
         Me.WindowBarSubItem.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BarMdiChildrenListItem1)})
         Me.WindowBarSubItem.Name = "WindowBarSubItem"
+        '
+        'BarMdiChildrenListItem1
+        '
+        Me.BarMdiChildrenListItem1.Caption = "BarMdiChildrenListItem1"
+        Me.BarMdiChildrenListItem1.Id = 34
+        Me.BarMdiChildrenListItem1.Name = "BarMdiChildrenListItem1"
         '
         'Bar4
         '
@@ -371,12 +377,6 @@ Partial Class MainXtraForm
         Me.DocumentManager1.MenuManager = Me.BarManager1
         Me.DocumentManager1.View = Me.TabbedView1
         Me.DocumentManager1.ViewCollection.AddRange(New DevExpress.XtraBars.Docking2010.Views.BaseView() {Me.TabbedView1})
-        '
-        'BarMdiChildrenListItem1
-        '
-        Me.BarMdiChildrenListItem1.Caption = "BarMdiChildrenListItem1"
-        Me.BarMdiChildrenListItem1.Id = 34
-        Me.BarMdiChildrenListItem1.Name = "BarMdiChildrenListItem1"
         '
         'MainXtraForm
         '

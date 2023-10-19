@@ -12,4 +12,8 @@
         checkinXtraForm.Show()
 
     End Sub
+
+    Private Sub CalendarBarButtonItem_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles CalendarBarButtonItem.ItemClick
+        CalendarRibbonForm.Show()
+    End Sub
 End Class

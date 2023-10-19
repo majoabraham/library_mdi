@@ -67,4 +67,8 @@ Public Class Book : Inherits XPObject
         End Get
     End Property
 
+    Public Overrides Function ToString As String
+        Return $"{_author} : {_title}"
+    End Function
+
 End Class
