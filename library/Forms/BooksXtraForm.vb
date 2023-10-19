@@ -23,4 +23,9 @@ Public Class BooksXtraForm
         Dim booksXtraReport = New BooksXtraReport()
         booksXtraReport.ShowPreview()
     End Sub
+
+    Private Sub BarButtonItem1_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem1.ItemClick
+        Dim booksReadersXtraReport = New BooksReadersXtraReport()
+        booksReadersXtraReport.ShowPreview()
+    End Sub
 End Class
