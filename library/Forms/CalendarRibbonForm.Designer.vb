@@ -75,8 +75,6 @@ Partial Class CalendarRibbonForm
         Me.AppointmentRibbonPage1 = New DevExpress.XtraScheduler.UI.AppointmentRibbonPage()
         Me.ActionsRibbonPageGroup1 = New DevExpress.XtraScheduler.UI.ActionsRibbonPageGroup()
         Me.OptionsRibbonPageGroup1 = New DevExpress.XtraScheduler.UI.OptionsRibbonPageGroup()
-        Me.BorrowingsRibbonPage = New DevExpress.XtraBars.Ribbon.RibbonPage()
-        Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.HomeRibbonPage1 = New DevExpress.XtraScheduler.UI.HomeRibbonPage()
         Me.AppointmentRibbonPageGroup1 = New DevExpress.XtraScheduler.UI.AppointmentRibbonPageGroup()
         Me.NavigatorRibbonPageGroup1 = New DevExpress.XtraScheduler.UI.NavigatorRibbonPageGroup()
@@ -123,7 +121,7 @@ Partial Class CalendarRibbonForm
         Me.RibbonControl.MaxItemId = 43
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.PageCategories.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageCategory() {Me.CalendarToolsRibbonPageCategory1})
-        Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.BorrowingsRibbonPage, Me.HomeRibbonPage1, Me.FileRibbonPage1, Me.ViewRibbonPage1})
+        Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.HomeRibbonPage1, Me.FileRibbonPage1, Me.ViewRibbonPage1})
         Me.RibbonControl.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemSpinEdit1, Me.RepositoryItemDuration1})
         Me.RibbonControl.Size = New System.Drawing.Size(1166, 158)
         Me.RibbonControl.StatusBar = Me.RibbonStatusBar
@@ -448,18 +446,6 @@ Partial Class CalendarRibbonForm
         Me.OptionsRibbonPageGroup1.ItemLinks.Add(Me.ChangeAppointmentReminderItem1)
         Me.OptionsRibbonPageGroup1.Name = "OptionsRibbonPageGroup1"
         '
-        'BorrowingsRibbonPage
-        '
-        Me.BorrowingsRibbonPage.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup1})
-        Me.BorrowingsRibbonPage.Name = "BorrowingsRibbonPage"
-        Me.BorrowingsRibbonPage.Text = "Borrowings"
-        Me.BorrowingsRibbonPage.Visible = False
-        '
-        'RibbonPageGroup1
-        '
-        Me.RibbonPageGroup1.Name = "RibbonPageGroup1"
-        Me.RibbonPageGroup1.Text = "RibbonPageGroup1"
-        '
         'HomeRibbonPage1
         '
         Me.HomeRibbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.AppointmentRibbonPageGroup1, Me.NavigatorRibbonPageGroup1, Me.ArrangeRibbonPageGroup1, Me.GroupByRibbonPageGroup1})
@@ -695,8 +681,6 @@ Partial Class CalendarRibbonForm
     End Sub
 
     Friend WithEvents RibbonControl As DevExpress.XtraBars.Ribbon.RibbonControl
-    Friend WithEvents BorrowingsRibbonPage As DevExpress.XtraBars.Ribbon.RibbonPage
-    Friend WithEvents RibbonPageGroup1 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents RibbonStatusBar As DevExpress.XtraBars.Ribbon.RibbonStatusBar
     Friend WithEvents DocumentManager1 As DevExpress.XtraBars.Docking2010.DocumentManager
     Friend WithEvents SchedulerControl1 As DevExpress.XtraScheduler.SchedulerControl
