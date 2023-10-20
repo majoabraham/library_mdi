@@ -40,6 +40,7 @@ Partial Class ReadersXtraForm
         Me.barDockControlBottom = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlRight = New DevExpress.XtraBars.BarDockControl()
+        Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.ReadersGridControl, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -143,8 +144,8 @@ Partial Class ReadersXtraForm
         Me.BarManager1.DockControls.Add(Me.barDockControlLeft)
         Me.BarManager1.DockControls.Add(Me.barDockControlRight)
         Me.BarManager1.Form = Me
-        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.CreateBarButtonItem, Me.EditBarButtonItem})
-        Me.BarManager1.MaxItemId = 2
+        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.CreateBarButtonItem, Me.EditBarButtonItem, Me.BarButtonItem1})
+        Me.BarManager1.MaxItemId = 3
         '
         'Bar1
         '
@@ -152,7 +153,7 @@ Partial Class ReadersXtraForm
         Me.Bar1.DockCol = 0
         Me.Bar1.DockRow = 0
         Me.Bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top
-        Me.Bar1.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.CreateBarButtonItem), New DevExpress.XtraBars.LinkPersistInfo(Me.EditBarButtonItem)})
+        Me.Bar1.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.CreateBarButtonItem), New DevExpress.XtraBars.LinkPersistInfo(Me.EditBarButtonItem), New DevExpress.XtraBars.LinkPersistInfo(Me.BarButtonItem1, True)})
         Me.Bar1.Text = "Tools"
         '
         'CreateBarButtonItem
@@ -201,6 +202,14 @@ Partial Class ReadersXtraForm
         Me.barDockControlRight.Manager = Me.BarManager1
         Me.barDockControlRight.Size = New System.Drawing.Size(0, 294)
         '
+        'BarButtonItem1
+        '
+        Me.BarButtonItem1.Hint = "Export to Xlsx"
+        Me.BarButtonItem1.Id = 2
+        Me.BarButtonItem1.ImageOptions.Image = CType(resources.GetObject("BarButtonItem1.ImageOptions.Image"), System.Drawing.Image)
+        Me.BarButtonItem1.ImageOptions.LargeImage = CType(resources.GetObject("BarButtonItem1.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.BarButtonItem1.Name = "BarButtonItem1"
+        '
         'ReadersXtraForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -246,4 +255,5 @@ Partial Class ReadersXtraForm
     Friend WithEvents barDockControlBottom As DevExpress.XtraBars.BarDockControl
     Friend WithEvents barDockControlLeft As DevExpress.XtraBars.BarDockControl
     Friend WithEvents barDockControlRight As DevExpress.XtraBars.BarDockControl
+    Friend WithEvents BarButtonItem1 As DevExpress.XtraBars.BarButtonItem
 End Class

@@ -16,4 +16,12 @@
     Private Sub CalendarBarButtonItem_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles CalendarBarButtonItem.ItemClick
         CalendarRibbonForm.Show()
     End Sub
+
+    Private Sub BarButtonItem1_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem1.ItemClick
+
+        Dim exportPath As String = "exports/borrowings.xlsx"
+
+        DataManipulation.ExportGridToXlsx(exportPath, BorrowingGridControl)
+
+    End Sub
 End Class
