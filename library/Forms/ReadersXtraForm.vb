@@ -12,4 +12,12 @@
         readerEditXtraForm.Show()
 
     End Sub
+
+    Private Sub BarButtonItem1_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem1.ItemClick
+
+        Dim exportPath As String = "exports/readers.xlsx"
+
+        DataManipulation.ExportGridToXlsx(exportPath, ReadersGridControl)
+
+    End Sub
 End Class

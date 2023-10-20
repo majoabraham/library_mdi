@@ -28,4 +28,16 @@ Public Class BooksXtraForm
         Dim booksReadersXtraReport = New BooksReadersXtraReport()
         booksReadersXtraReport.ShowPreview()
     End Sub
+
+    Private Sub ExportXlsxBarButtonItem_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles ExportXlsxBarButtonItem.ItemClick
+
+        Dim exportPath As String = "exports/books.xlsx"
+
+        DataManipulation.ExportGridToXlsx(exportPath, BooksGridControl)
+
+    End Sub
+
+    Private Sub TreeViewBarButtonItem_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles TreeViewBarButtonItem.ItemClick
+        BooksTreeViewXtraForm.Show()
+    End Sub
 End Class
