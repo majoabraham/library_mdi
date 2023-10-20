@@ -15,9 +15,9 @@
 
     Private Sub BarButtonItem1_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem1.ItemClick
 
-        Dim exportPath As String = "exports/readers.xlsx"
+        Dim fileName = "readers.xlsx"
 
-        DataManipulation.ExportGridToXlsx(exportPath, ReadersGridControl)
+        DataManipulation.ExportGridToXlsx(fileName, ReadersGridControl)
 
     End Sub
 End Class

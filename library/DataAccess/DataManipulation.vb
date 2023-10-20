@@ -1,5 +1,4 @@
 ﻿Imports System.IO
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Imports System.Xml
 Imports DevExpress.Export
 Imports DevExpress.Xpo
@@ -34,48 +33,80 @@ Module DataManipulation
 
     End Function
 
-    Sub ExportGridToXlsx(exportPath As String, gridControl As GridControl)
+    Sub ExportGridToXlsx(fileName As String, gridControl As GridControl)
+
+        Dim exportPath = Path.Combine(Application.StartupPath, "exports")
+
+        If Not System.IO.Directory.Exists(exportPath) Then
+            System.IO.Directory.CreateDirectory(exportPath)
+        End If
+
+
+        Dim filePath = Path.Combine(exportPath, fileName)
 
         Dim options = New XlsxExportOptionsEx With {
             .ExportType = ExportType.DataAware
         }
 
-        gridControl.ExportToXlsx(exportPath, options)
+        gridControl.ExportToXlsx(filePath, options)
 
-        Process.Start(Path.Combine(Application.StartupPath, exportPath))
+        Process.Start(filePath)
+
     End Sub
 
-    Sub ExportTreeListToXml(exportPath As String, treeList As TreeList)
+    Sub ExportTreeListToXml(fileName As String, treeList As TreeList)
 
-        treeList.ExportToXml(exportPath)
+        Dim exportPath = Path.Combine(Application.StartupPath, "exports")
 
-        Process.Start(Path.Combine(Application.StartupPath, exportPath))
+        If Not System.IO.Directory.Exists(exportPath) Then
+            System.IO.Directory.CreateDirectory(exportPath)
+        End If
+
+
+        Dim filePath = Path.Combine(exportPath, fileName)
+
+        treeList.ExportToXml(filePath)
+
+        Process.Start(filePath)
+
     End Sub
 
-    Private Sub Cosi(exportPath As String, treeList As TreeList)
+    Sub ExportTreeListToXml2(fileName As String, treeList As TreeList)
+
         Dim xmlDoc As New XmlDocument()
-        Dim folderPath As String = "D:/repos/LibraryNew/LibraryNew/Exports/"
-        ' Create the root element for the XML document
-        Dim rootElement As XmlElement = xmlDoc.CreateElement("BookTreeView")
-        xmlDoc.AppendChild(rootElement)
-        ' Traverse the TreeView nodes and add them to the XML document
-        'TraverseNodes(treeList.Nodes, rootElement, xmlDoc)
 
-        ' Save the XML document to a file
-        Dim xmlFilePath As String = System.IO.Path.Combine(folderPath, "TreeViewData.xml")
-        xmlDoc.Save(xmlFilePath)
-        MessageBox.Show("TreeView data exported to XML successfully!", "Export to XML", MessageBoxButtons.OK, MessageBoxIcon.Information)
-    End Sub
-    Private Sub TraverseNodes(nodes As TreeNodeCollection, parentElement As XmlElement, xmlDoc As XmlDocument)
-        For Each node As TreeNode In nodes
-            ' Create an XML element for the node
-            Dim nodeElement As XmlElement = xmlDoc.CreateElement("Node")
-            nodeElement.SetAttribute("Text", node.Text)
-            ' Add the XML element to the parent element
-            parentElement.AppendChild(nodeElement)
-            ' Recursively traverse child nodes
-            TraverseNodes(node.Nodes, nodeElement, xmlDoc)
+        Dim rootElement As XmlElement = xmlDoc.CreateElement("Books")
+        xmlDoc.AppendChild(rootElement)
+
+        For Each bookNode As TreeListNode In treeList.Nodes
+
+            Dim bookElement = xmlDoc.CreateElement("Book")
+            bookElement.SetAttribute("value", bookNode.GetValue(treeList.Columns(0)).ToString())
+            rootElement.AppendChild(bookElement)
+
+            For Each readerNode As TreeListNode In bookNode.Nodes
+
+                Dim readerElement = xmlDoc.CreateElement("Reader")
+                readerElement.SetAttribute("value", readerNode.GetValue(treeList.Columns(0)).ToString())
+                bookElement.AppendChild(readerElement)
+
+            Next
+
         Next
+
+        Dim exportPath = Path.Combine(Application.StartupPath, "exports")
+
+        If Not System.IO.Directory.Exists(exportPath) Then
+            System.IO.Directory.CreateDirectory(exportPath)
+        End If
+
+
+        Dim filePath = Path.Combine(exportPath, fileName)
+
+        xmlDoc.Save(filePath)
+
+        Process.Start(filePath)
+
     End Sub
 
 End Module

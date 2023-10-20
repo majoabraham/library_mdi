@@ -31,9 +31,9 @@ Public Class BooksXtraForm
 
     Private Sub ExportXlsxBarButtonItem_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles ExportXlsxBarButtonItem.ItemClick
 
-        Dim exportPath As String = "exports/books.xlsx"
+        Dim fileName = "books.xlsx"
 
-        DataManipulation.ExportGridToXlsx(exportPath, BooksGridControl)
+        DataManipulation.ExportGridToXlsx(fileName, BooksGridControl)
 
     End Sub
 

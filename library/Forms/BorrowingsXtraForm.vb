@@ -19,9 +19,9 @@
 
     Private Sub BarButtonItem1_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem1.ItemClick
 
-        Dim exportPath As String = "exports/borrowings.xlsx"
+        Dim fileName = "borrowings.xlsx"
 
-        DataManipulation.ExportGridToXlsx(exportPath, BorrowingGridControl)
+        DataManipulation.ExportGridToXlsx(fileName, BorrowingGridControl)
 
     End Sub
 End Class

@@ -55,9 +55,9 @@ Public Class BooksTreeViewXtraForm
 
     Private Sub BarButtonItem1_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem1.ItemClick
 
-        Dim exportPath As String = "exports/books.xml"
+        Dim fileName = "books.xml"
 
-        DataManipulation.ExportTreeListToXml(exportPath, BooksTreeList)
+        DataManipulation.ExportTreeListToXml2(fileName, BooksTreeList)
 
     End Sub
 End Class
