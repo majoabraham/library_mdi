@@ -24,7 +24,7 @@ Public Class BooksXtraForm
         booksXtraReport.ShowPreview()
     End Sub
 
-    Private Sub BarButtonItem1_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem1.ItemClick
+    Private Sub BarButtonItem1_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles ReportBorrowingsBarButtonItem.ItemClick
         Dim booksReadersXtraReport = New BooksReadersXtraReport()
         booksReadersXtraReport.ShowPreview()
     End Sub
@@ -39,5 +39,12 @@ Public Class BooksXtraForm
 
     Private Sub TreeViewBarButtonItem_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles TreeViewBarButtonItem.ItemClick
         BooksTreeViewXtraForm.Show()
+    End Sub
+
+    Private Sub PivotGridBarButtonItem_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles PivotGridBarButtonItem.ItemClick
+
+
+        BooksPivotGridXtraForm.Show()
+
     End Sub
 End Class

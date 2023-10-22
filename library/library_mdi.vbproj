@@ -89,6 +89,7 @@
     <Reference Include="DevExpress.XtraGrid.v21.2, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v21.2, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraNavBar.v21.2, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v21.2, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v21.2, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraReports.v21.2, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v21.2.Extensions, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -205,6 +206,12 @@
     <Compile Include="Forms\BookReadersXtraForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\BooksPivotGridXtraForm.Designer.vb">
+      <DependentUpon>BooksPivotGridXtraForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BooksPivotGridXtraForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\BooksReadersXtraReport.Designer.vb">
       <DependentUpon>BooksReadersXtraReport.vb</DependentUpon>
     </Compile>
@@ -294,6 +301,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BookReadersXtraForm.resx">
       <DependentUpon>BookReadersXtraForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BooksPivotGridXtraForm.resx">
+      <DependentUpon>BooksPivotGridXtraForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BooksReadersXtraReport.resx">
       <DependentUpon>BooksReadersXtraReport.vb</DependentUpon>
