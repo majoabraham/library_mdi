@@ -56,39 +56,45 @@ Module DataManipulation
 
     Sub ExportTreeListToXml(fileName As String, treeList As TreeList)
 
-        Dim exportPath = Path.Combine(Application.StartupPath, "exports")
-
-        If Not System.IO.Directory.Exists(exportPath) Then
-            System.IO.Directory.CreateDirectory(exportPath)
-        End If
-
-
-        Dim filePath = Path.Combine(exportPath, fileName)
-
-        treeList.ExportToXml(filePath)
-
-        Process.Start(filePath)
-
-    End Sub
-
-    Sub ExportTreeListToXml2(fileName As String, treeList As TreeList)
-
         Dim xmlDoc As New XmlDocument()
 
-        Dim rootElement As XmlElement = xmlDoc.CreateElement("Books")
+        Dim rootElement As XmlElement = xmlDoc.CreateElement("books")
         xmlDoc.AppendChild(rootElement)
 
         For Each bookNode As TreeListNode In treeList.Nodes
 
-            Dim bookElement = xmlDoc.CreateElement("Book")
-            bookElement.SetAttribute("value", bookNode.GetValue(treeList.Columns(0)).ToString())
+            Dim bookElement = xmlDoc.CreateElement("book")
             rootElement.AppendChild(bookElement)
 
-            For Each readerNode As TreeListNode In bookNode.Nodes
+            Dim authorElement = xmlDoc.CreateElement("author")
+            authorElement.InnerText = bookNode.GetValue(treeList.Columns(0)).ToString()
+            bookElement.AppendChild(authorElement)
 
-                Dim readerElement = xmlDoc.CreateElement("Reader")
-                readerElement.SetAttribute("value", readerNode.GetValue(treeList.Columns(0)).ToString())
-                bookElement.AppendChild(readerElement)
+            Dim titleNode = bookNode.Nodes(0)
+            Dim titleElement = xmlDoc.CreateElement("title")
+            titleElement.InnerText = titleNode.GetValue(treeList.Columns(0)).ToString()
+            bookElement.AppendChild(titleElement)
+
+            Dim borrowingsElement As XmlElement = Nothing
+
+            If titleNode.Nodes.Count <> 0 Then
+                borrowingsElement = xmlDoc.CreateElement("borrowings")
+                bookElement.AppendChild(borrowingsElement)
+            End If
+
+            For Each readerNode As TreeListNode In titleNode.Nodes
+
+                Dim borrowingElement = xmlDoc.CreateElement("borrowing")
+                borrowingsElement.AppendChild(borrowingElement)
+
+                Dim readerElement = xmlDoc.CreateElement("reader")
+                readerElement.InnerText = readerNode.GetValue(treeList.Columns(0)).ToString()
+                borrowingElement.AppendChild(readerElement)
+
+                Dim checkoutNode = readerNode.Nodes(0)
+                Dim checkoutElement = xmlDoc.CreateElement("checkout")
+                checkoutElement.InnerText = checkoutNode.GetValue(treeList.Columns(0)).ToString()
+                borrowingElement.AppendChild(checkoutElement)
 
             Next
 

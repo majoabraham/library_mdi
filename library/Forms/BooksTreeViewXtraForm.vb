@@ -20,8 +20,8 @@ Public Class BooksTreeViewXtraForm
         treeList.BeginUpdate()
 
         Dim col1 As TreeListColumn = treeList.Columns.Add()
-        col1.FieldName = "Books"
-        col1.Caption = "Books"
+        col1.FieldName = "Borrowings"
+        col1.Caption = "Borrowings"
         col1.VisibleIndex = 0
 
         treeList.EndUpdate()
@@ -36,14 +36,15 @@ Public Class BooksTreeViewXtraForm
 
         ' Create a root node
         Dim parentForRootNodes As TreeListNode = Nothing
-        Dim bookNode As TreeListNode = Nothing
 
         For Each book In books
-            bookNode = treeList.AppendNode(New Object() {$"{book.Author} : {book.Title}"}, parentForRootNodes)
+            Dim bookAuthorNode = treeList.AppendNode(New Object() {book.Author}, parentForRootNodes)
+            Dim bookTitleNode = treeList.AppendNode(New Object() {book.Title}, bookAuthorNode)
 
             For Each borrowing In book.Borrowings
                 If borrowing.CheckinDate Is Nothing Then
-                    treeList.AppendNode(New Object() {borrowing.Reader.FullName}, bookNode)
+                    Dim borrowingReaderName = treeList.AppendNode(New Object() {borrowing.Reader.FullName}, bookTitleNode)
+                    Dim borrowingCheckout = treeList.AppendNode(New Object() {borrowing.CheckoutDate.Value.ToShortDateString()}, borrowingReaderName)
                 End If
 
             Next
@@ -57,7 +58,7 @@ Public Class BooksTreeViewXtraForm
 
         Dim fileName = "books.xml"
 
-        DataManipulation.ExportTreeListToXml2(fileName, BooksTreeList)
+        DataManipulation.ExportTreeListToXml(fileName, BooksTreeList)
 
     End Sub
 End Class
