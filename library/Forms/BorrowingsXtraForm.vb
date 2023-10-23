@@ -17,11 +17,17 @@
         CalendarRibbonForm.Show()
     End Sub
 
-    Private Sub BarButtonItem1_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem1.ItemClick
+    Private Sub BarButtonItem1_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles ExportXlsxBarButtonItem.ItemClick
 
         Dim fileName = "borrowings.xlsx"
 
         DataManipulation.ExportGridToXlsx(fileName, BorrowingGridControl)
+
+    End Sub
+
+    Private Sub PivotGridBarButtonItem_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles PivotGridBarButtonItem.ItemClick
+
+        BorrowingsPivotGridXtraForm.Show()
 
     End Sub
 End Class

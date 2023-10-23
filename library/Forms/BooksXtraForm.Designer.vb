@@ -42,11 +42,11 @@ Partial Class BooksXtraForm
         Me.ReportBorrowingsBarButtonItem = New DevExpress.XtraBars.BarButtonItem()
         Me.ExportXlsxBarButtonItem = New DevExpress.XtraBars.BarButtonItem()
         Me.TreeViewBarButtonItem = New DevExpress.XtraBars.BarButtonItem()
+        Me.PivotGridBarButtonItem = New DevExpress.XtraBars.BarButtonItem()
         Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlBottom = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlRight = New DevExpress.XtraBars.BarDockControl()
-        Me.PivotGridBarButtonItem = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.BooksGridControl, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -165,7 +165,7 @@ Partial Class BooksXtraForm
         Me.Bar1.DockCol = 0
         Me.Bar1.DockRow = 0
         Me.Bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top
-        Me.Bar1.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.CreateBarButtonItem), New DevExpress.XtraBars.LinkPersistInfo(Me.EditBarButtonItem), New DevExpress.XtraBars.LinkPersistInfo(Me.ReadersBarButtonItem), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.ReportBarButtonItem, "", True, True, True, 0, Nothing, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.ReportBorrowingsBarButtonItem, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(Me.ExportXlsxBarButtonItem), New DevExpress.XtraBars.LinkPersistInfo(Me.TreeViewBarButtonItem), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.PivotGridBarButtonItem, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)})
+        Me.Bar1.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.CreateBarButtonItem), New DevExpress.XtraBars.LinkPersistInfo(Me.EditBarButtonItem), New DevExpress.XtraBars.LinkPersistInfo(Me.ReadersBarButtonItem), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.ReportBarButtonItem, "", True, True, True, 0, Nothing, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.ReportBorrowingsBarButtonItem, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(Me.ExportXlsxBarButtonItem), New DevExpress.XtraBars.LinkPersistInfo(Me.TreeViewBarButtonItem), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.PivotGridBarButtonItem, "", False, True, False, 0, Nothing, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)})
         Me.Bar1.Text = "Tools"
         '
         'CreateBarButtonItem
@@ -201,8 +201,8 @@ Partial Class BooksXtraForm
         '
         Me.ReportBorrowingsBarButtonItem.Hint = "Books Readers Report"
         Me.ReportBorrowingsBarButtonItem.Id = 4
-        Me.ReportBorrowingsBarButtonItem.ImageOptions.Image = CType(resources.GetObject("BarButtonItem1.ImageOptions.Image"), System.Drawing.Image)
-        Me.ReportBorrowingsBarButtonItem.ImageOptions.LargeImage = CType(resources.GetObject("BarButtonItem1.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.ReportBorrowingsBarButtonItem.ImageOptions.Image = CType(resources.GetObject("ReportBorrowingsBarButtonItem.ImageOptions.Image"), System.Drawing.Image)
+        Me.ReportBorrowingsBarButtonItem.ImageOptions.LargeImage = CType(resources.GetObject("ReportBorrowingsBarButtonItem.ImageOptions.LargeImage"), System.Drawing.Image)
         Me.ReportBorrowingsBarButtonItem.Name = "ReportBorrowingsBarButtonItem"
         '
         'ExportXlsxBarButtonItem
@@ -221,6 +221,14 @@ Partial Class BooksXtraForm
         Me.TreeViewBarButtonItem.ImageOptions.Image = CType(resources.GetObject("TreeViewBarButtonItem.ImageOptions.Image"), System.Drawing.Image)
         Me.TreeViewBarButtonItem.ImageOptions.LargeImage = CType(resources.GetObject("TreeViewBarButtonItem.ImageOptions.LargeImage"), System.Drawing.Image)
         Me.TreeViewBarButtonItem.Name = "TreeViewBarButtonItem"
+        '
+        'PivotGridBarButtonItem
+        '
+        Me.PivotGridBarButtonItem.Hint = "Pivot Grid"
+        Me.PivotGridBarButtonItem.Id = 7
+        Me.PivotGridBarButtonItem.ImageOptions.Image = CType(resources.GetObject("PivotGridBarButtonItem.ImageOptions.Image"), System.Drawing.Image)
+        Me.PivotGridBarButtonItem.ImageOptions.LargeImage = CType(resources.GetObject("PivotGridBarButtonItem.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.PivotGridBarButtonItem.Name = "PivotGridBarButtonItem"
         '
         'barDockControlTop
         '
@@ -253,14 +261,6 @@ Partial Class BooksXtraForm
         Me.barDockControlRight.Location = New System.Drawing.Point(748, 24)
         Me.barDockControlRight.Manager = Me.BarManager1
         Me.barDockControlRight.Size = New System.Drawing.Size(0, 294)
-        '
-        'PivotGridBarButtonItem
-        '
-        Me.PivotGridBarButtonItem.Hint = "Pivot Grid"
-        Me.PivotGridBarButtonItem.Id = 7
-        Me.PivotGridBarButtonItem.ImageOptions.Image = CType(resources.GetObject("PivotGridBarButtonItem.ImageOptions.Image"), System.Drawing.Image)
-        Me.PivotGridBarButtonItem.ImageOptions.LargeImage = CType(resources.GetObject("PivotGridBarButtonItem.ImageOptions.LargeImage"), System.Drawing.Image)
-        Me.PivotGridBarButtonItem.Name = "PivotGridBarButtonItem"
         '
         'BooksXtraForm
         '

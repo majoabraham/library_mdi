@@ -236,6 +236,12 @@
     <Compile Include="Forms\BooksXtraReport.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Forms\BorrowingsPivotGridXtraForm.Designer.vb">
+      <DependentUpon>BorrowingsPivotGridXtraForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BorrowingsPivotGridXtraForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\BorrowingsXtraForm.Designer.vb">
       <DependentUpon>BorrowingsXtraForm.vb</DependentUpon>
     </Compile>
@@ -316,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BooksXtraReport.resx">
       <DependentUpon>BooksXtraReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BorrowingsPivotGridXtraForm.resx">
+      <DependentUpon>BorrowingsPivotGridXtraForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BorrowingsXtraForm.resx">
       <DependentUpon>BorrowingsXtraForm.vb</DependentUpon>
