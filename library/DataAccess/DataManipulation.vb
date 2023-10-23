@@ -2,6 +2,7 @@
 Imports System.Xml
 Imports DevExpress.Export
 Imports DevExpress.Xpo
+Imports DevExpress.XtraEditors
 Imports DevExpress.XtraGrid
 Imports DevExpress.XtraPrinting
 Imports DevExpress.XtraTreeList
@@ -50,7 +51,11 @@ Module DataManipulation
 
         gridControl.ExportToXlsx(filePath, options)
 
-        Process.Start(filePath)
+        Dim result As DialogResult = XtraMessageBox.Show("Do you want to open the xlsx file?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+        If result = DialogResult.Yes Then
+            Process.Start(filePath)
+        End If
 
     End Sub
 
@@ -111,7 +116,11 @@ Module DataManipulation
 
         xmlDoc.Save(filePath)
 
-        Process.Start(filePath)
+        Dim result As DialogResult = XtraMessageBox.Show("Do you want to open the xml file?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+        If result = DialogResult.Yes Then
+            Process.Start(filePath)
+        End If
 
     End Sub
 
